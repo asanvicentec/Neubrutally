@@ -1,0 +1,31 @@
+{
+  "name": "neu-brutally",
+  "version": "1.0.0",
+  "css": "dist/main.css",
+  "targets": {
+    "css": {
+      "source": "src/main.pcss"
+    }
+  },
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "lint": "npx stylelint 'src/main.pcss'",
+    "lint:fix": "npx stylelint 'src/*.pcss' --fix",
+    "lint-build": "npx stylelint 'src/*.pcss' && parcel build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "parcel": "^2.12.0",
+    "postcss-extend-rule": "^4.0.0",
+    "postcss-lit": "^1.1.1",
+    "postcss-mixins": "^10.0.1",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^9.5.14",
+    "postcss-simple-vars": "^7.0.1",
+    "stylelint": "^16.6.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-scss": "^6.3.1"
+  }
+}

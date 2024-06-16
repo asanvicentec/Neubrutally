@@ -1,0 +1,180 @@
+$border-width: 4px;
+$box-shadow: $border-width $border-width 0 0 #000;
+$margin: 8px;
+$padding: 14px 20px;
+$default-font: sans-serif;
+
+@font-face {
+  font-family: "League Spartan";
+  src: url("fonts/league_spartan/variable/WOFF2/LeagueSpartan-VF.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Bebas Kai";
+  src: url("fonts/bebas_kai/BebasKai.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesque";
+  src: url("fonts/space_grotesk/woff2/SpaceGrotesk[wght].woff2") format("woff2");
+}
+
+%container {
+  border-width: $border-width;
+  border-style: solid;
+  border-color: black;
+  box-shadow: $box-shadow;
+  background: white;
+}
+
+%input-range-thumb-style {
+  background-color: red;
+  height: 2rem;
+  width: 2rem;
+
+  @extend %container;
+
+  border-radius: 50%;
+}
+
+.neu {
+  &-button {
+    font-family: "Bebas Kai", $default-font;
+    font-size: 2em;
+    font-weight: 100;
+    padding: 14px 20px;
+    margin: 8px;
+
+    @extend %container;
+
+    &-pressed {
+      @extend .neu-button;
+
+      filter: brightness(80%);
+      box-shadow: none;
+      transform: translate($border-width, $border-width);
+    }
+  }
+
+  &-font {
+    &-bebas {
+      font-family: "Bebas Kai", $default-font;
+    }
+
+    &-space {
+      font-family: "Space Grotesque", $default-font;
+    }
+
+    &-league {
+      font-family: "League Spartan", $default-font;
+    }
+  }
+
+  &-container {
+    @extend %container;
+  }
+
+  &-bg {
+    &-green {
+      background: #bcd6b0;
+    }
+  }
+
+  &-input-radio {
+    appearance: none;
+    width: 30px;
+    height: 30px;
+
+    @extend %container;
+
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+
+    &:checked {
+      transform: translate($border-width, $border-width);
+      filter: brightness(80%);
+      box-shadow: none;
+    }
+  }
+
+  &-input-search {
+    @extend %container;
+
+    padding: 8px;
+    outline: none;
+
+    &:focus {
+      box-shadow: none;
+      transform: translate($border-width, $border-width);
+    }
+  }
+
+  &-input-checkbox {
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    @extend %container;
+
+    &:checked {
+      background-color: red;
+      box-shadow: none;
+      transform: translate($border-width, $border-width);
+    }
+  }
+
+  /* #region Range input */
+  
+  /* https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/ */
+  
+  /* Range reset */
+  &-input-range {
+    appearance: none; /* Override default look */
+    background: transparent;
+    cursor: pointer;
+    width: 15rem;
+
+    /* Removes default focus */
+    &:focus {
+      outline: none;
+    }
+
+    /* Slider track */
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track {
+      background-color: #404142;
+      border-radius: 0.5rem;
+      height: $border-width;
+    }
+
+    /* Slider thumb */
+    &::-webkit-slider-thumb {
+      appearance: none; /* Override default look */
+      margin-top: -14px; /* Centers thumb on the track, calculated like so: (track height in pixels / 2) - (thumb height in pixels /2) */
+
+      /* Custom styles */
+      @extend %input-range-thumb-style;
+    }
+
+    /* Slider thumb */
+    &::-moz-range-thumb {
+      border: none; /* Removes extra border that FF applies */
+      border-radius: 0; /* Removes default border-radius that FF applies */
+
+      /* Custom styles */
+      @extend %input-range-thumb-style;
+    }
+
+    &:focus::-moz-range-thumb,
+    &:focus::-webkit-slider-thumb {
+      transform: translate($border-width, $border-width);
+      filter: brightness(80%);
+      box-shadow: none;
+    }
+  }
+
+  /* #endregion */
+}
