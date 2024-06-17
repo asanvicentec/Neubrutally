@@ -29,7 +29,7 @@ $default-font: sans-serif;
 }
 
 %input-range-thumb-style {
-  background-color: red;
+  background-color: white;
   height: 2rem;
   width: 2rem;
 
@@ -93,9 +93,9 @@ $default-font: sans-serif;
     cursor: pointer;
 
     &:checked {
-      transform: translate($border-width, $border-width);
       filter: brightness(80%);
       box-shadow: none;
+      transform: translate($border-width, $border-width);
     }
   }
 
@@ -120,7 +120,7 @@ $default-font: sans-serif;
     @extend %container;
 
     &:checked {
-      background-color: red;
+      filter: brightness(80%);
       box-shadow: none;
       transform: translate($border-width, $border-width);
     }
