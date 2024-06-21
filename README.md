@@ -20,6 +20,18 @@ If you also want to render the styles as you modify them with little overhead,
 the best solution I found was to start a server with the VSCode *Live Server extension* and open the index.html 
 file in the browser while having the watch command running.
 
+### Testing locally in other projects
+Run the following command:
+```
+npm pack --pack-destination your-directory
+```
+This will create a tarball file in the specified location. Then, in the project you wish to install the library, add this in package.json's dependencies:
+```
+"neu-brutally": "file:your-directory"
+
+```
+Finally run `npm i` to install it.
+
 ## Linting
 Always lint the CSS before commiting, to do so run the command:
 ```
