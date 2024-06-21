@@ -1,12 +1,13 @@
 {
   "name": "neu-brutally",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "css": "dist/main.css",
   "targets": {
     "css": {
       "source": "src/main.pcss"
     }
   },
+  "files": ["dist/**"],
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "watch": "parcel watch",

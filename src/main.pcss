@@ -28,6 +28,12 @@ $default-font: sans-serif;
   background: white;
 }
 
+%element-pressed {
+  filter: brightness(80%);
+  box-shadow: none;
+  transform: translate($border-width, $border-width);
+}
+
 %input-range-thumb-style {
   background-color: white;
   height: 2rem;
@@ -48,12 +54,9 @@ $default-font: sans-serif;
 
     @extend %container;
 
-    &-pressed {
-      @extend .neu-button;
-
-      filter: brightness(80%);
-      box-shadow: none;
-      transform: translate($border-width, $border-width);
+    &-pressed,
+    &-active:active {
+      @extend %element-pressed;
     }
   }
 
@@ -93,9 +96,7 @@ $default-font: sans-serif;
     cursor: pointer;
 
     &:checked {
-      filter: brightness(80%);
-      box-shadow: none;
-      transform: translate($border-width, $border-width);
+      @extend %element-pressed;
     }
   }
 
@@ -105,7 +106,8 @@ $default-font: sans-serif;
     padding: 8px;
     outline: none;
 
-    &:focus {
+    &-focused,
+    &-focus:focus {
       box-shadow: none;
       transform: translate($border-width, $border-width);
     }
@@ -120,22 +122,21 @@ $default-font: sans-serif;
     @extend %container;
 
     &:checked {
-      filter: brightness(80%);
-      box-shadow: none;
-      transform: translate($border-width, $border-width);
+      @extend %element-pressed;
     }
   }
 
   /* #region Range input */
-  
+
   /* https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/ */
-  
+
   /* Range reset */
   &-input-range {
     appearance: none; /* Override default look */
     background: transparent;
     cursor: pointer;
     width: 15rem;
+    margin: 1.5rem;
 
     /* Removes default focus */
     &:focus {
@@ -168,11 +169,12 @@ $default-font: sans-serif;
       @extend %input-range-thumb-style;
     }
 
-    &:focus::-moz-range-thumb,
-    &:focus::-webkit-slider-thumb {
-      transform: translate($border-width, $border-width);
+    &:hover::-moz-range-thumb,
+    &:hover::-webkit-slider-thumb {
       filter: brightness(80%);
-      box-shadow: none;
+
+      /* transform: translate($border-width, $border-width);
+      box-shadow: none; */
     }
   }
 
